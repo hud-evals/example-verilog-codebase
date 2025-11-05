@@ -26,8 +26,6 @@ async def quickstart_1(dut):
     input_clock.start()
     await Timer(5, "ns")
 
-    assert False, "This is a test"
-
     # Re-synchronize with the clock
     await RisingEdge(dut.clk)
     dut.rst.value = 0
