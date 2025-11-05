@@ -13,4 +13,18 @@ module simple_counter (
   timeunit 1ns;
   timeprecision 1ns;
 
+  always_ff @(posedge clk) begin
+    if (rst) begin
+      counter <= 8'd0;
+    end else begin
+      if (set) begin
+        counter <= din;
+      end else if (ena) begin
+        counter <= counter + 1;
+      end else begin
+        counter <= counter;
+      end
+    end
+  end
+
 endmodule
