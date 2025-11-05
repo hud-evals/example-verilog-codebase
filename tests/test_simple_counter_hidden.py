@@ -194,7 +194,7 @@ async def quickstart_3(dut):
     await NextTimeStep()
 
 
-def test_simple_dff_runner():
+def test_simple_counter_hidden_runner():
     sim = os.getenv("SIM", "icarus")
 
     proj_path = Path(__file__).resolve().parent.parent
@@ -208,4 +208,4 @@ def test_simple_dff_runner():
         always=True,
     )
 
-    runner.test(hdl_toplevel="simple_counter", test_module="test_simple_counter")
+    runner.test(hdl_toplevel="simple_counter", test_module="test_simple_counter_hidden")
