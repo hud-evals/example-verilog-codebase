@@ -12,18 +12,18 @@ from cocotb_tools.runner import get_runner
 async def example_test(dut):
     pass
 
-def test_simple_counter_runner():
+def test_simple_dff_runner():
     sim = os.getenv("SIM", "icarus")
 
     proj_path = Path(__file__).resolve().parent.parent
 
-    sources = [proj_path / "sources/simple_counter.sv"]
+    sources = [proj_path / "sources/dff.sv"]
 
     runner = get_runner(sim)
     runner.build(
         sources=sources,
-        hdl_toplevel="simple_counter",
+        hdl_toplevel="dff",
         always=True,
     )
 
-    runner.test(hdl_toplevel="simple_counter", test_module="test_simple_counter")
+    runner.test(hdl_toplevel="dff", test_module="test_simple_dff")
