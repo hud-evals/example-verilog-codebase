@@ -8,6 +8,8 @@ module dff (
   output logic q
 );
 
-
+always @(posedge clk) begin
+  q <= d;
+end
 
 endmodule
